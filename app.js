@@ -45,15 +45,8 @@ app.post("/payment", async (req, res) => {
 });
 
 
-app.post("/payment_success/:data", async (req, res) => {
-    
-    console.log(req.params.data)
-    var bytes = CryptoJS.AES.decrypt(req.params.data.toString(), 'gtKFFx');
-    // var decryptedData = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
-
-    console.log(JSON.parse(bytes.toString(CryptoJS.enc)))
-    // console.log(decryptedData)
-
+app.post("/payment_success", async (req, res) => {
+    console.log(req)
     res.sendFile('success.html', {root: __dirname })
 });
 
